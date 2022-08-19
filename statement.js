@@ -37,13 +37,14 @@ function statement (invoice, plays) {
         if ("comedy" === play.type) volumeCredits += Math.floor(perf.audience / 5);
 
         // print line for this order
-        result += ` ${play.name}: ${format(thisAmount/100)} (${perf.audience} seats)`
+        result += ` ${play.name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`
         totalAmount += thisAmount;
     }
     result += `Amount owed is ${format(totalAmount/100)}\n`;
     result += `You earned ${volumeCredits} credits\n`;
     return result;
 }
+
 const invoices = require('./invoices.json');
 const plays = require('./plays.json');
 //console.log(Intl.NumberFormat.supportedLocalesOf('en'))
