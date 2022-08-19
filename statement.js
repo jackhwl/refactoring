@@ -8,11 +8,8 @@ function statement (invoice, plays) {
                     currency: "USD",
                     minimumFractionDigits: 2 
                 }).format;
-
-    for (let perf of invoice.performances) {
-        const play = plays[perf.playID];
+    function amountFor(perf, play) {
         let thisAmount = 0;
-
         switch (play.type) {
             case "tragedy":
                 thisAmount = 40000;
@@ -30,6 +27,12 @@ function statement (invoice, plays) {
             default:
                 throw new Error(`unknown type: ${play.type}`);
         }
+        return thisAmount;
+    }
+    
+    for (let perf of invoice.performances) {
+        const play = plays[perf.playID];
+        let thisAmount = amountFor(perf, play);
 
         // add volume credits
         volumeCredits += Math.max(perf.audience - 30, 0);
@@ -45,9 +48,13 @@ function statement (invoice, plays) {
     return result;
 }
 
+
+
 const invoices = require('./invoices.json');
 const plays = require('./plays.json');
 //console.log(Intl.NumberFormat.supportedLocalesOf('en'))
 invoices.forEach(invoice => 
     console.log(statement(invoice, plays))
 )
+
+
