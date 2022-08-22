@@ -1,0 +1,16 @@
+{
+  "name": "refactoring",
+  "version": "1.0.0",
+  "description": "Refactoring",
+  "main": "statemeent.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackhwl/refactoring.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
