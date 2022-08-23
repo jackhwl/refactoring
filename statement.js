@@ -48,7 +48,7 @@ const invoices = require('./invoices.json');
 const plays = require('./plays.json');
 //console.log(Intl.NumberFormat.supportedLocalesOf('en'))
 invoices.forEach(invoice => 
-    console.log(htmlStatement(invoice, plays))
+    console.log(statement(invoice, plays))
     
 )
 
